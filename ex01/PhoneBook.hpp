@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:17 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/13 15:13:53 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:45:36 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,16 @@ class Contact
 		std::string darkest_secret, std::string phone_number);
 	void createContact();
 	void printContact();
-
+	bool isEmpty();
 	~Contact(void);
 };
 
-/* class PhoneBook
+class PhoneBook
 {
   public:
-	int contactCount;
-	Contact Contact[8];
+	Contact Contacts[8];
 	PhoneBook(void);
 	~PhoneBook(void);
-}; */
+};
 
 #endif
