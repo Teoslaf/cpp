@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:14 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/13 16:58:12 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:30:28 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,40 +29,39 @@ bool Contact::isEmpty()
 }
 Contact::~Contact(void)
 {
-	std::cout << "Contact destroyed"
-				<< "\033[0m" << std::endl;
+	// std::cout << "Contact destroyed" << W << std::endl;
 }
 void Contact::createContact()
 {
 	std::cout << "\033[1;36m"
-				<< "Enter First Name"
-				<< "\033[0m" << std::endl;
+				<< "Enter First Name" << W << std::endl;
 	std::cin >> first_name;
 	std::cout << "\033[1;36m"
-				<< "Enter Last Name"
-				<< "\033[0m" << std::endl;
+				<< "Enter Last Name" << W << std::endl;
 	std::cin >> last_name;
 	std::cout << "\033[1;36m"
-				<< "Enter Nickname"
-				<< "\033[0m" << std::endl;
+				<< "Enter Nickname" << W << std::endl;
 	std::cin >> nickname;
 	std::cout << "\033[1;36m"
-				<< "Enter Darkest Secret"
-				<< "\033[0m" << std::endl;
+				<< "Enter Darkest Secret" << W << std::endl;
 	std::cin >> darkest_secret;
 	std::cout << "\033[1;36m"
-				<< "Enter Phone Number"
-				<< "\033[0m" << std::endl;
+				<< "Enter Phone Number" << W << std::endl;
 	std::cin >> phone_number;
 }
 
-void Contact::printContact()
+std::string Contact::trunc(std::string str)
 {
-	std::cout << first_name << std::endl;
-	std::cout << last_name << std::endl;
-	std::cout << nickname << std::endl;
-	std::cout << darkest_secret << std::endl;
-	std::cout << phone_number << std::endl;
+	if(str.length() > 10)
+		return(str.substr(0, 9) + ".");
+	return (str);
+}
+void Contact::printContact(int index)
+{
+	std::cout << M << std::setw(10) << index << W << "|" << std::endl;
+	std::cout << M << std::setw(10) << trunc(first_name) << W << "|" << std::endl;
+	std::cout << M << std::setw(10) << trunc(last_name) << W << "|" << std::endl;
+	std::cout << M << std::setw(10) << trunc(nickname) << W << "|" << std::endl;
 }
 PhoneBook::PhoneBook(void)
 {
@@ -86,9 +85,7 @@ int	main(int argc, char **argv)
 	{
 		while (1)
 		{
-			std::cout << "\033[1;32m"
-						<< "Enter input: ADD, SEARCH or EXIT"
-						<< "\033[0m" << std::endl;
+			std::cout << G << "Enter input: ADD, SEARCH or EXIT " << W << std::endl;
 			std::cin >> str;
 			if (str == "ADD" || str == "add")
 			{
@@ -97,33 +94,28 @@ int	main(int argc, char **argv)
 			}
 			else if (str == "SEARCH" || str == "search")
 			{
-				std::cout << "\033[1;32m" << "Enter index (0 - 7): " << "\033[0m" << std::endl;
+				std::cout << G << "Enter index (0 - 7): " << W << std::endl;
 				std::cin >> i;
 				if (i >= 0 && i <= 7)
 				{
 					if (PhoneBook.Contacts[i].isEmpty())
-						std::cout << "\033[1;31m"
-									<< "Contact at index " << i << " is empty."
-									<< "\033[0m" << std::endl;
+						std::cout << R << "Contact at index " << i << " is empty." << W << std::endl;
 					else
-						PhoneBook.Contacts[i].printContact();
+						PhoneBook.Contacts[i].printContact(i);
 				}
 				else
-					std::cout << "\033[1;31m"
-								<< "Invalid index. Please enter a value between 0 and 7."
-								<< "\033[0m" << std::endl;
+					std::cout << R << "Invalid index. Please enter a value between 0 and 7." << W << std::endl;
 			}
-			else if (str == "EXIT" || str == "exit")
+			else if (str == "EXIT" || str == "exit" || std::cin.eof())
 			{
-				std::cout <<  "\033[1;33m" << "c ya" << "\033[0m" << std::endl;
+				std::cout << Y << "c ya" << W << std::endl;
 				break ;
 			}
 			else
-				std::cout << "\033[1;31m"
-							<< "Try again!"
-							<< "\033[0m" << std::endl;
+				std::cout << R << "Try again!" << W << std::endl;
 		}
 	}
 	else
 		std::cout << "error" << std::endl;
+	return(0);
 }

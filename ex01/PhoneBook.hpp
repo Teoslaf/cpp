@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:17 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/13 16:45:36 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:26:04 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 # include <iomanip>
 # include <iostream>
-
+#define W "\033[1;37m"
+#define R "\033[1;31m"
+#define Y "\033[1;33m"
+#define G "\033[1;32m"
+#define M "\033[1;35m"
 class Contact
 {
   private:
@@ -29,8 +33,9 @@ class Contact
 	Contact(std::string first_name, std::string last_name, std::string nickname,
 		std::string darkest_secret, std::string phone_number);
 	void createContact();
-	void printContact();
+	void printContact(int index);
 	bool isEmpty();
+	std::string trunc(std::string std);
 	~Contact(void);
 };
 
