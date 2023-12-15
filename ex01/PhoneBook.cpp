@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:14 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/15 11:43:57 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:09:37 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,14 @@ PhoneBook::~PhoneBook(void)
 	// std::cout << "Contact destroyed" << std::endl;
 }
 
+/* void PhoneBook::printSearch(int index)
+{
+	for(int i = 0; i < index; i++)
+	{
+
+	}
+}
+ */
 int	main(int argc, char **argv)
 {
 	PhoneBook	PhoneBook;

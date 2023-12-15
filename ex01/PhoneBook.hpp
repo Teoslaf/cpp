@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:17 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/15 11:10:51 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:07:40 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,11 @@ class Contact
 
 class PhoneBook
 {
+  private:
+
   public:
 	Contact Contacts[8];
+	void printSearch(int index);
 	PhoneBook(void);
 	~PhoneBook(void);
 };
