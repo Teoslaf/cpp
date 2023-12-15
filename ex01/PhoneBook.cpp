@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:14 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/14 14:30:28 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/15 11:43:57 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,23 @@ Contact::~Contact(void)
 }
 void Contact::createContact()
 {
-	std::cout << "\033[1;36m"
-				<< "Enter First Name" << W << std::endl;
-	std::cin >> first_name;
-	std::cout << "\033[1;36m"
-				<< "Enter Last Name" << W << std::endl;
-	std::cin >> last_name;
-	std::cout << "\033[1;36m"
-				<< "Enter Nickname" << W << std::endl;
-	std::cin >> nickname;
-	std::cout << "\033[1;36m"
-				<< "Enter Darkest Secret" << W << std::endl;
-	std::cin >> darkest_secret;
-	std::cout << "\033[1;36m"
-				<< "Enter Phone Number" << W << std::endl;
-	std::cin >> phone_number;
+	std::cout << B << "Enter First Name" << W << std::endl;
+	std::cin.ignore();
+	std::getline(std::cin, first_name);
+	std::cout << B << "Enter Last Name" << W << std::endl;
+	std::getline(std::cin, last_name);
+	std::cout << B << "Enter Nickname" << W << std::endl;
+	std::getline(std::cin, nickname);
+	std::cout << B << "Enter Darkest Secret" << W << std::endl;
+	std::getline(std::cin, darkest_secret);
+	std::cout << B << "Enter Phone Number" << W << std::endl;
+	std::getline(std::cin, phone_number);
 }
 
 std::string Contact::trunc(std::string str)
 {
-	if(str.length() > 10)
-		return(str.substr(0, 9) + ".");
+	if (str.length() > 10)
+		return (str.substr(0, 9) + ".");
 	return (str);
 }
 void Contact::printContact(int index)
@@ -77,7 +73,6 @@ int	main(int argc, char **argv)
 {
 	PhoneBook	PhoneBook;
 	int			i;
-
 	std::string str;
 	i = 0;
 	(void)argv;
@@ -85,23 +80,27 @@ int	main(int argc, char **argv)
 	{
 		while (1)
 		{
+			if (std::cin.eof())
+				break ;
 			std::cout << G << "Enter input: ADD, SEARCH or EXIT " << W << std::endl;
 			std::cin >> str;
 			if (str == "ADD" || str == "add")
 			{
+				i = i % 8;
 				PhoneBook.Contacts[i].createContact();
-				i = (i + 1) % 8;
+				i++;
 			}
 			else if (str == "SEARCH" || str == "search")
 			{
+				int j;
 				std::cout << G << "Enter index (0 - 7): " << W << std::endl;
-				std::cin >> i;
-				if (i >= 0 && i <= 7)
+				std::cin >> j;
+				if (j >= 0 && j <= 7)
 				{
-					if (PhoneBook.Contacts[i].isEmpty())
-						std::cout << R << "Contact at index " << i << " is empty." << W << std::endl;
+					if (PhoneBook.Contacts[j].isEmpty())
+						std::cout << R << "Contact at index " << j << " is empty." << W << std::endl;
 					else
-						PhoneBook.Contacts[i].printContact(i);
+						PhoneBook.Contacts[j].printContact(j);
 				}
 				else
 					std::cout << R << "Invalid index. Please enter a value between 0 and 7." << W << std::endl;
@@ -117,5 +116,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		std::cout << "error" << std::endl;
-	return(0);
+	return (0);
 }
