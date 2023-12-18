@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:14 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/18 15:33:33 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:35:17 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,8 @@ int	main(int argc, char **argv)
 	int			j;
 
 	std::string str;
+	std::string qwe;
+
 	(void)argv;
 	if (argc == 1)
 	{
