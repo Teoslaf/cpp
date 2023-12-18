@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:14 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/15 16:09:37 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:33:33 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Contact::Contact(std::string first_name = "", std::string last_name = "",
 	this->darkest_secret = darkest_secret;
 	this->phone_number = phone_number;
 }
+
 bool Contact::isEmpty()
 {
 	return (first_name.empty() && last_name.empty() && nickname.empty()
@@ -29,23 +30,76 @@ bool Contact::isEmpty()
 }
 Contact::~Contact(void)
 {
-	// std::cout << "Contact destroyed" << W << std::endl;
+}
+
+void Contact::err()
+{
+	std::cout << R << "write smt bruv" << W << std::endl;
+	return ;
 }
 void Contact::createContact()
 {
-	std::cout << B << "Enter First Name" << W << std::endl;
-	std::cin.ignore();
-	std::getline(std::cin, first_name);
-	std::cout << B << "Enter Last Name" << W << std::endl;
-	std::getline(std::cin, last_name);
-	std::cout << B << "Enter Nickname" << W << std::endl;
-	std::getline(std::cin, nickname);
-	std::cout << B << "Enter Darkest Secret" << W << std::endl;
-	std::getline(std::cin, darkest_secret);
-	std::cout << B << "Enter Phone Number" << W << std::endl;
-	std::getline(std::cin, phone_number);
+		std::cin.ignore();
+	do
+	{
+		if(std::cin.eof())
+			exit(EXIT_FAILURE) ;
+		std::cout << B << "Enter First Name" << W << std::endl;
+		std::getline(std::cin, first_name);
+		if (first_name.empty())
+			err();
+	} while (first_name.empty());
+	do
+	{
+		if(std::cin.eof())
+			exit(EXIT_FAILURE) ;
+		std::cout << B << "Enter Last Name" << W << std::endl;
+		std::getline(std::cin, last_name);
+		if (last_name.empty())
+			err();
+	} while (last_name.empty());
+	do
+	{
+		if(std::cin.eof())
+			exit(EXIT_FAILURE) ;
+		std::cout << B << "Enter Nickname" << W << std::endl;
+		std::getline(std::cin, nickname);
+		if (nickname.empty())
+			err();
+	} while (nickname.empty());
+	do
+	{
+		if(std::cin.eof())
+			exit(EXIT_FAILURE) ;
+		std::cout << B << "Enter Darkest Secret" << W << std::endl;
+		std::getline(std::cin, darkest_secret);
+		if (darkest_secret.empty())
+			err();
+	} while (darkest_secret.empty());
+	do
+	{
+		if(std::cin.eof())
+			exit(EXIT_FAILURE) ;
+		std::cout << B << "Enter Phone Number" << W << std::endl;
+		std::getline(std::cin, phone_number);
+		if (phone_number.empty())
+			err();
+	} while (phone_number.empty());
 }
 
+void PhoneBook::addContact()
+{
+	if (numberOfContacts < 8)
+	{
+		Contacts[numberOfContacts].createContact();
+		numberOfContacts++;
+	}
+	else
+	{
+		Contacts[oldest].createContact();
+		oldest = (oldest + 1) % 8;
+	}
+}
 std::string Contact::trunc(std::string str)
 {
 	if (str.length() > 10)
@@ -54,65 +108,78 @@ std::string Contact::trunc(std::string str)
 }
 void Contact::printContact(int index)
 {
-	std::cout << M << std::setw(10) << index << W << "|" << std::endl;
-	std::cout << M << std::setw(10) << trunc(first_name) << W << "|" << std::endl;
-	std::cout << M << std::setw(10) << trunc(last_name) << W << "|" << std::endl;
+	std::cout << M << std::setw(10) << index << W << "|";
+	std::cout << M << std::setw(10) << trunc(first_name) << W << "|";
+	std::cout << M << std::setw(10) << trunc(last_name) << W << "|";
 	std::cout << M << std::setw(10) << trunc(nickname) << W << "|" << std::endl;
 }
-PhoneBook::PhoneBook(void)
+void PhoneBook::PprintContact(int index)
 {
-	// std::cout << "Contact created" << std::endl;
+	Contacts[index].printContact(index);
+}
+
+PhoneBook::PhoneBook(void) : oldest(0), numberOfContacts(0)
+{
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	// std::cout << "Contact destroyed" << std::endl;
 }
 
-/* void PhoneBook::printSearch(int index)
+void PhoneBook::printSearch()
 {
-	for(int i = 0; i < index; i++)
+	std::cout << "###########################################" << std::endl;
+	for (int i = 0; i < numberOfContacts; i++)
 	{
-
+		if (!Contacts[i].isEmpty())
+		{
+			Contacts[i].printContact(i);
+			std::cout << "###########################################" << std::endl;
+		}
 	}
 }
- */
+
+bool PhoneBook::IisEmpty(int index)
+{
+	return (Contacts[index].isEmpty());
+}
+
 int	main(int argc, char **argv)
 {
 	PhoneBook	PhoneBook;
-	int			i;
+	int			j;
+
 	std::string str;
-	i = 0;
 	(void)argv;
 	if (argc == 1)
 	{
 		while (1)
 		{
+			std::cout << G << "add || search || exit" << W << std::endl;
+			std::cin >> str;
 			if (std::cin.eof())
 				break ;
-			std::cout << G << "Enter input: ADD, SEARCH or EXIT " << W << std::endl;
-			std::cin >> str;
 			if (str == "ADD" || str == "add")
-			{
-				i = i % 8;
-				PhoneBook.Contacts[i].createContact();
-				i++;
-			}
+				PhoneBook.addContact();
 			else if (str == "SEARCH" || str == "search")
 			{
-				int j;
+				PhoneBook.printSearch();
 				std::cout << G << "Enter index (0 - 7): " << W << std::endl;
 				std::cin >> j;
+				if (std::cin.eof())
+					break ;
 				if (j >= 0 && j <= 7)
 				{
-					if (PhoneBook.Contacts[j].isEmpty())
+					if (PhoneBook.IisEmpty(j))
 						std::cout << R << "Contact at index " << j << " is empty." << W << std::endl;
 					else
-						PhoneBook.Contacts[j].printContact(j);
+						PhoneBook.PprintContact(j);
 				}
 				else
 					std::cout << R << "Invalid index. Please enter a value between 0 and 7." << W << std::endl;
 			}
+			else if (std::cin.eof())
+				break ;
 			else if (str == "EXIT" || str == "exit" || std::cin.eof())
 			{
 				std::cout << Y << "c ya" << W << std::endl;

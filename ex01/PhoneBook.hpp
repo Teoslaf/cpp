@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:17 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/15 16:07:40 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:29:27 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 # define PHONEBOOK_HPP
 # include <iomanip>
 # include <iostream>
+#include <cstdlib>
 
-#define W "\033[1;37m"
-#define R "\033[1;31m"
-#define Y "\033[1;33m"
-#define G "\033[1;32m"
-#define M "\033[1;35m"
-#define B "\033[1;36m"
+# define W "\033[1;37m"
+# define R "\033[1;31m"
+# define Y "\033[1;33m"
+# define G "\033[1;32m"
+# define M "\033[1;35m"
+# define B "\033[1;36m"
 
 class Contact
 {
@@ -37,6 +38,7 @@ class Contact
 	void createContact();
 	void printContact(int index);
 	bool isEmpty();
+	void err();
 	std::string trunc(std::string std);
 	~Contact(void);
 };
@@ -44,10 +46,14 @@ class Contact
 class PhoneBook
 {
   private:
-
-  public:
 	Contact Contacts[8];
-	void printSearch(int index);
+	int oldest;
+	int numberOfContacts;
+  public:
+	void addContact();
+	void PprintContact(int index);
+	bool IisEmpty(int index);
+	void printSearch();
 	PhoneBook(void);
 	~PhoneBook(void);
 };
