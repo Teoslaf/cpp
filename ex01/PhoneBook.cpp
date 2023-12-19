@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:39:14 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/18 15:35:17 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:04:01 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,6 @@ PhoneBook::~PhoneBook(void)
 
 void PhoneBook::printSearch()
 {
-	std::cout << "###########################################" << std::endl;
 	for (int i = 0; i < numberOfContacts; i++)
 	{
 		if (!Contacts[i].isEmpty())
@@ -147,10 +146,9 @@ bool PhoneBook::IisEmpty(int index)
 int	main(int argc, char **argv)
 {
 	PhoneBook	PhoneBook;
-	int			j;
 
 	std::string str;
-	std::string qwe;
+	std::string  qwe;
 
 	(void)argv;
 	if (argc == 1)
@@ -167,18 +165,20 @@ int	main(int argc, char **argv)
 			{
 				PhoneBook.printSearch();
 				std::cout << G << "Enter index (0 - 7): " << W << std::endl;
-				std::cin >> j;
+				std::cin >> qwe;
 				if (std::cin.eof())
 					break ;
-				if (j >= 0 && j <= 7)
+				if (qwe.length() == 1 && '0' <= qwe[0] && qwe[0] <= '7')
 				{
-					if (PhoneBook.IisEmpty(j))
-						std::cout << R << "Contact at index " << j << " is empty." << W << std::endl;
+					if (PhoneBook.IisEmpty(qwe[0] - '0'))
+						std::cout << R << "Contact at index " << qwe[0] << " is empty." << W << std::endl;
 					else
-						PhoneBook.PprintContact(j);
+						PhoneBook.PprintContact(qwe[0] - '0');
 				}
 				else
+				{
 					std::cout << R << "Invalid index. Please enter a value between 0 and 7." << W << std::endl;
+				}	
 			}
 			else if (std::cin.eof())
 				break ;

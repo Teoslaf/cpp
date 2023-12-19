@@ -2,7 +2,7 @@ SRC = Account.cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
 RM = rm -f
-CPPFLAGS = 
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME = account
 
 all: $(NAME)
