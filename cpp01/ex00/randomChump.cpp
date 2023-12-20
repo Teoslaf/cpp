@@ -6,7 +6,13 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 11:05:16 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/20 11:05:17 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/20 11:47:37 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
+void randomChump( std::string name )
+{
+	(void)name;
+}

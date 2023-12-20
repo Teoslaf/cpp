@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 11:05:20 by ttaneski          #+#    #+#             */
-/*   Updated: 2023/12/20 11:10:46 by ttaneski         ###   ########.fr       */
+/*   Updated: 2023/12/20 11:49:07 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ class Zombie
 
   public:
 	void announce( void );
-	Zombie(void);
+	Zombie(std::string name);
 	~Zombie(void);
 };
+Zombie* newZombie( std::string name );
+
 #endif
