@@ -8,7 +8,7 @@ NAME = zombie
 all: $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CPPFLAGS) -c $^ -o $@
+	@$(CC) $(CPPFLAGS) -c $^ -o $@
 
 $(NAME): $(OBJ)
 	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)

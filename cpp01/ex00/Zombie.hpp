@@ -17,13 +17,6 @@
 # include <iostream>
 # include <cstdlib>
 
-# define W "\033[1;37m"
-# define R "\033[1;31m"
-# define Y "\033[1;33m"
-# define G "\033[1;32m"
-# define M "\033[1;35m"
-# define B "\033[1;36m"
-
 class Zombie
 {
   private:
