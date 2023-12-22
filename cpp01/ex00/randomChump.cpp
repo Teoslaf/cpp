@@ -14,5 +14,7 @@
 
 void randomChump( std::string name )
 {
-	(void)name;
+	Zombie *Zombie = newZombie(name);
+	std::cout << name << ": "<< "im a random Chump" << std::endl;
+	delete Zombie;
 }
