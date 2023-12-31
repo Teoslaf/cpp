@@ -2,7 +2,6 @@
 
 void openSave(const std::string &filename, const std::string &s1, const std::string &s2)
 {
-	(void)s2;
 	std::ifstream file(filename);
 	if (file.is_open())
 	{
