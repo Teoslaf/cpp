@@ -9,7 +9,6 @@ void openSave(const std::string &filename, const std::string &s1, const std::str
 		std::stringstream strStream;
 		strStream << file.rdbuf();
 		std::string str = strStream.str();
-		std::cout << str << std::endl;
 		size_t pos = str.find(s1);
 		while (pos != std::string::npos)
 		{
