@@ -3,7 +3,7 @@ OBJ = $(SRC:.cpp=.o)
 CC = c++
 RM = rm -f
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME = a.out
+NAME = replace
 
 all: $(NAME)
 
