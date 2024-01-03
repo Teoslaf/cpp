@@ -4,37 +4,15 @@
 class Fixed
 {
 private:
-	int *x;
-
+	int *value;
+	static const int fractionalBits;
 public:
-	Fixed()
-	{
-		x = new int(0);
-	}
-	Fixed(const Fixed &other)
-	{
-		x = new int(*other.x);
-	}
-	Fixed &operator=(const Fixed &other)
-	{
-		if(this != &other)
-		{
-			*x = *other.x;
-		}
-		return *this;
-	}
-	~Fixed()
-	{
-		delete x;
-	}
-	void setValue(int y)
-	{
-		*x = y;
-	}
-	int* getValue()
-	{
-		return x;
-	}
+	Fixed();
+	Fixed(const Fixed &other);
+	Fixed &operator=(const Fixed &other);
+	~Fixed();
+	void setRawBits( int const raw);
+	int getRawBits( void );
 };
 
 #endif
