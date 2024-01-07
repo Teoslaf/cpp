@@ -3,10 +3,6 @@
 
 #include <iostream>
 
-// ******************************************************** //
-//                         CLASSES                         //
-// ****************************************************** //
-
 class ClapTrap
 {
 private:
@@ -18,6 +14,7 @@ private:
 public:
 	ClapTrap(std::string name);
 	ClapTrap(ClapTrap const &obj);
+	ClapTrap();
 	~ClapTrap();
 	ClapTrap &operator=(const ClapTrap &obj);
 
