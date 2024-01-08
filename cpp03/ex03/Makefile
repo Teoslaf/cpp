@@ -1,6 +1,6 @@
 NAME = ClapTrap 
 
-CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address -Wshadow
+CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 CC = c++ 
 
