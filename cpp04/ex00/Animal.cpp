@@ -2,12 +2,12 @@
 
 Animal::Animal() : type("psciner")
 {
-	std::cout << "Animal : " << type << " Default Constructor Called" << std::endl;
+	std::cout << "Animal : Default Constructor Called" << std::endl;
 }
 
 Animal::~Animal()
 {
-	std::cout << "Animal : " << type << " Destructor Called" << std::endl;
+	std::cout << "Animal : Destructor Called" << std::endl;
 }
 
 Animal::Animal(Animal const &obj)
@@ -27,10 +27,9 @@ Animal &Animal::operator=(const Animal &obj)
 	return (*this);
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
-	if (type == "Dog")
-		std::cout << "dog " << std::endl;
+	std::cout << "Animal:  ayoooooo" << std::endl;
 }
 std::string Animal::getType() const
 {

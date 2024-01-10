@@ -3,12 +3,12 @@
 Dog::Dog()
 {
 	type = "Dog";
-	std::cout << "Dog : "<< type << " Default Constructor Called" << std::endl;
+	std::cout << "Dog : Default Constructor Called" << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog : "<< type << " Destructor Called" << std::endl;
+	std::cout << "Dog : Destructor Called" << std::endl;
 }
 
 Dog::Dog(Dog const &obj)
@@ -26,4 +26,9 @@ Dog	&Dog::operator= (const Dog &obj)
 		this->type = obj.type;
 	}
 	return (*this);
+}
+
+void Dog::makeSound() const
+{
+	std::cout << "dog: bark? " << std::endl;
 }

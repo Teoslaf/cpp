@@ -2,13 +2,13 @@
 
 Cat::Cat()
 {
-	type = "Car";
-	std::cout << "Cat : "<< type << " Default Constructor Called" << std::endl;
+	type = "Cat";
+	std::cout << "Cat : Default Constructor Called" << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat : "<< type << " Destructor Called" << std::endl;
+	std::cout << "Cat : Destructor Called" << std::endl;
 }
 
 Cat::Cat(Cat const &obj)
@@ -26,4 +26,9 @@ Cat	&Cat::operator= (const Cat &obj)
 		this->type = obj.type;
 	}
 	return (*this);
+}
+
+void Cat::makeSound() const
+{
+	std::cout << "cat: meow " << std::endl;
 }

@@ -4,10 +4,6 @@
 #include <iostream>
 #include "Animal.hpp"
 
-// ******************************************************** //
-//                         CLASSES                         //
-// ****************************************************** //
-
 class Cat : public Animal
 {
 public:
@@ -15,13 +11,8 @@ public:
 	Cat(Cat const &obj);
 	~Cat();
 	Cat &operator=(const Cat &obj);
+	void makeSound() const;
 
-private:
-	//	DataType	attributes.
 };
-
-// ******************************************************** //
-//                        FUNCTIONS                        //
-// ****************************************************** //
 
 #endif
