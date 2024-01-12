@@ -12,11 +12,11 @@ Dog::~Dog()
 	delete brain;
 }
 
-Dog::Dog(Dog const &obj)
+Dog::Dog(Dog const &obj) : brain(nullptr)
 {
-	std::cout << "Copy Constructor Called" << std::endl;
-	*this = obj;
-	brain = new Brain();
+	std::cout << "Dog Copy Constructor Called" << std::endl;
+	brain = new Brain(*obj.brain);
+	type = obj.type;
 }
 
 Dog &Dog::operator=(const Dog &obj)
