@@ -3,19 +3,18 @@
 
 #include <iostream>
 
-
-class	Brain
+class Brain
 {
-	private	:
-		std::string ideas[100];
-	public	:
-		Brain ();
-		// Brain (Brain const &obj);
-		~Brain ();
-		// Brain &operator= (const Brain &obj);
-		void setIdea(int index, std::string idea);
-		std::string getIdea(int index);
+public:
+	Brain();
+	Brain(Brain const &obj);
+	~Brain();
+	Brain &operator=(const Brain &obj);
+	void setIdea(int i, std::string idea);
+	std::string getIdea(int i);
 
+protected:
+	std::string ideas[100];
 };
 
 #endif

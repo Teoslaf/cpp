@@ -10,29 +10,39 @@ Brain::~Brain()
 	std::cout << "Brain : Destructor Called" << std::endl;
 }
 
-// Brain::Brain(Brain const &obj)
-// {
-// 	std::cout << "Copy Constructor Called" << std::endl;
-// 	if (this != &obj)
-// 		*this = obj;
-// }
-
-// Brain &Brain::operator=(const Brain &obj)
-// {
-// 	std::cout << "Copy Assignment Operator Called" << std::endl;
-// 	if (this != &obj)
-// 	{
-// 		//	this->attributes = obj.attributes;
-// 		//	...
-// 	}
-// 	return (*this);
-// }
-
-void Brain::setIdea(int index, std::string idea)
+Brain::Brain(Brain const &obj)
 {
-	ideas[index] = idea;
+	std::cout << "Copy Constructor Called" << std::endl;
+	for (int i = 0; i < 100; ++i)
+	{
+		ideas[i] = obj.ideas[i];
+	}
 }
-std::string Brain::getIdea(int index)
+
+Brain &Brain::operator=(const Brain &obj)
 {
-	return(ideas[index]);
+	std::cout << "Copy Assignment Operator Called" << std::endl;
+	if (this != &obj)
+	{
+		for (int i = 0; i < 100; ++i)
+		{
+			ideas[i] = obj.ideas[i];
+		}
+	}
+	return (*this);
+}
+
+void Brain::setIdea(int i, std::string idea)
+{
+	if (i >= 0 && i < 100)
+		ideas[i] = idea;
+	else
+		return;
+}
+std::string Brain::getIdea(int i)
+{
+	if (i >= 0 && i < 100)
+		return ideas[i];
+	else 
+		return "";
 }
