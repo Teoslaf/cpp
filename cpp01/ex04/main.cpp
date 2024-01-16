@@ -2,7 +2,7 @@
 
 void openSave(const std::string &filename, const std::string &s1, const std::string &s2)
 {
-	std::ifstream file(filename);
+	std::ifstream file(filename.c_str());
 	if (file.is_open())
 	{
 		std::stringstream strStream;
@@ -14,7 +14,7 @@ void openSave(const std::string &filename, const std::string &s1, const std::str
 			str = str.substr(0, pos) + s2 + str.substr(pos + s1.length());
 			pos = str.find(s1, pos + s2.length());
 		}
-		std::ofstream outFile(filename + ".relace");
+		std::ofstream outFile((filename + ".replace").c_str()); 
 		if(outFile.is_open())
 			outFile << str;
 		else

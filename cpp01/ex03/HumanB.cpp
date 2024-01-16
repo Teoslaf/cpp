@@ -1,7 +1,7 @@
 #include "HumanB.hpp"
 #include "Weapon.hpp"
 
-HumanB::HumanB(const std::string &name) : weapon(nullptr), name(name)
+HumanB::HumanB(const std::string &name) : weapon(NULL), name(name)
 {
 }
 HumanB::~HumanB()
@@ -14,7 +14,7 @@ void HumanB::setWeapon(const Weapon &hWeapon)
 }
 void HumanB::attack()
 {
-	if(weapon != nullptr)
+	if(weapon != NULL)
 		std::cout << name <<  " attacks with their " << weapon->getType() << std::endl; 
 	else
 		std::cout << name <<  " dwight used paper spray " << std::endl; 
