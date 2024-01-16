@@ -4,12 +4,12 @@
 class Fixed
 {
 private:
-	int *value;
+	int value;
 	static const int fractionalBits;
 public:
 	Fixed();
-	Fixed(const Fixed &other);
-	Fixed &operator=(const Fixed &other);
+	Fixed( Fixed &other);
+	Fixed &operator=( Fixed &other);
 	~Fixed();
 	void setRawBits( int const raw);
 	int getRawBits( void );
