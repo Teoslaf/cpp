@@ -10,22 +10,22 @@ Animal::~Animal()
 	std::cout << "Animal : Destructor Called" << std::endl;
 }
 
-// Animal::Animal(Animal const &obj)
-// {
-// 	std::cout << "Copy Constructor Called" << std::endl;
-// 	if (this != &obj)
-// 		*this = obj;
-// }
+Animal::Animal(Animal const &obj)
+{
+	std::cout << "Copy Constructor Called" << std::endl;
+	if (this != &obj)
+		*this = obj;
+}
 
-// Animal &Animal::operator=(const Animal &obj)
-// {
-// 	std::cout << "Copy Assignment Operator Called" << std::endl;
-// 	if (this != &obj)
-// 	{
-// 		this->type = obj.type;
-// 	}
-// 	return (*this);
-// }
+Animal &Animal::operator=(const Animal &obj)
+{
+	std::cout << "Copy Assignment Operator Called" << std::endl;
+	if (this != &obj)
+	{
+		this->type = obj.type;
+	}
+	return (*this);
+}
 
 void Animal::makeSound() const
 {

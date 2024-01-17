@@ -30,12 +30,15 @@ Fixed &Fixed::operator=(const Fixed &other)
 	}
 	return *this;
 }
+// Shift 'x' to the left by 'fractionalBits' positions to convert it to a fixed-point representation.
+// Example: If fractionalBits is 8 and 'x' is 10, the binary representation of 10 is shifted left to add fractional bits.
 Fixed::Fixed(const int x)
 {
 	std::cout << "Int constructor called" << std::endl;
 	setRawBits(x << this->fractionalBits);
 }
-
+// Convert the float 'x' to its fixed-point representation by multiplying it by 2^fractionalBits and rounding to the nearest integer.
+// Example: If fractionalBits is 8 and 'x' is 3.75, the calculation is 3.75 * 256 = 960.0, which is rounded to 960.
 Fixed::Fixed(const float x)
 {
 	std::cout << "Float constructor called" << std::endl;
