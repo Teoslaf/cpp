@@ -13,7 +13,7 @@ class Cat : public Animal
   public:
 	Cat();
 	Cat(Cat const &obj);
-	~Cat();
+	virtual ~Cat();
 	Cat &operator=(const Cat &obj);
 	void makeSound() const;
 	void setCatIdea(int i, std::string idea);

@@ -13,7 +13,7 @@ class Dog : public Animal
   public:
 	Dog();
 	Dog(Dog const &obj);
-	~Dog();
+	virtual ~Dog();
 	Dog &operator=(const Dog &obj);
 	void makeSound() const;
 	void setDogIdea(int i, std::string idea);
