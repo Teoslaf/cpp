@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 	catch (std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
-
+		std::exit(EXIT_FAILURE);
 	}
 
 	// std::cout << "Bureaucrat : name grade Constructor Called" << std::endl;
@@ -27,25 +27,24 @@ Bureaucrat::~Bureaucrat()
 	// std::cout << "Bureaucrat : Destructor Called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &obj)
+Bureaucrat::Bureaucrat(Bureaucrat const &obj):  name(obj.getName() + "_copy")
 {
-	std::cout << "Copy Constructor Called" << std::endl;
+	// std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
-	std::cout << "Copy Assignment Operator Called" << std::endl;
+	// std::cout << "Copy Assignment Operator Called" << std::endl;
 	if (this != &obj)
 	{
-		//	this->attributes = obj.attributes;
-		//	...
+		this->grade = obj.grade;
 	}
 	return (*this);
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return name;
 }
@@ -57,15 +56,35 @@ int Bureaucrat::getGrade()
 
 void Bureaucrat::incrementGrade()
 {
-
+	try
+	{
+		if (grade <= 1)
+			throw GradeTooHighException();
+		grade--;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+		std::exit(EXIT_FAILURE);
+	}
 }
 void Bureaucrat::decrementGrade()
 {
-	
+	try
+	{
+		if (grade >= 150)
+			throw GradeTooLowException();
+		grade++;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+		std::exit(EXIT_FAILURE);
+	}
 }
 std::ostream &operator<<(std::ostream &output, Bureaucrat &bureaucrat)
 {
-	return (output << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()) << std::endl;
+	return (output << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade());
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()

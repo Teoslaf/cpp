@@ -3,10 +3,6 @@
 
 #include <iostream>
 
-// ******************************************************** //
-//                         CLASSES                         //
-// ****************************************************** //
-
 class Bureaucrat
 {
 public:
@@ -15,7 +11,7 @@ public:
 	Bureaucrat(Bureaucrat const &obj);
 	~Bureaucrat();
 	Bureaucrat &operator=(const Bureaucrat &obj);
-	std::string getName();
+	std::string getName() const;
 	int getGrade();
 	void incrementGrade();
 	void decrementGrade();
@@ -37,9 +33,5 @@ private:
 };
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat &bureaucrat);
-
-// ******************************************************** //
-//                        FUNCTIONS                        //
-// ****************************************************** //
 
 #endif
