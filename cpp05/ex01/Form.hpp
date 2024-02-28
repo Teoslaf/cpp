@@ -6,13 +6,13 @@
 // ******************************************************** //
 //                         CLASSES                         //
 // ****************************************************** //
-
+// class Bureaucrat;
 class Form
 {
 public:
 	Form();
 	Form(Form const &obj);
-	Form(std::string name, int signGrade, int executeGrade);
+	Form(std::string name, int signGrade, int executeGrade );
 	~Form();
 	Form &operator=(const Form &obj);
 	std::string getName() const;

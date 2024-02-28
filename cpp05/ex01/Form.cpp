@@ -2,9 +2,9 @@
 
 Form::Form(): name("default"), isSigned(false), signGrade(1), executeGrade(1)
 {
-	std::cout << "Form : Default Constructor Called" << std::endl;
+	// std::cout << "Form : Default Constructor Called" << std::endl;
 }
-Form::Form(std::string name,int signGrade, int executeGrade ): name(name), signGrade(signGrade), executeGrade(executeGrade)
+Form::Form(std::string name,int signGrade, int executeGrade ): name(name), isSigned(false), signGrade(signGrade), executeGrade(executeGrade)
 {
 	try
 	{
@@ -18,11 +18,11 @@ Form::Form(std::string name,int signGrade, int executeGrade ): name(name), signG
 		std::cerr << e.what() << '\n';
 	}
 	
-	std::cout << "Form : Default Constructor Called" << std::endl;
+	// std::cout << "Form : Default Constructor Called" << std::endl;
 }
 Form::~Form()
 {
-	std::cout << "Form : Destructor Called" << std::endl;
+	// std::cout << "Form : Destructor Called" << std::endl;
 }
 
 Form::Form(Form const &obj): name(obj.getName() + "_copy"), isSigned(obj.isSigned), signGrade(obj.signGrade), executeGrade(obj.executeGrade) 
@@ -37,19 +37,18 @@ Form	&Form::operator= (const Form &obj)
 	std::cout << "Copy Assignment Operator Called" << std::endl;
 	if (this != &obj)
 	{
-		//	this->attributes = obj.attributes;
-		//	...
+		this->isSigned = obj.isSigned;
 	}
 	return (*this);
 }
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high";
+	return "Form: Grade is too high";
 }
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low";
+	return "Form: Grade is too low";
 }
 
 std::string Form::getName() const
@@ -72,13 +71,13 @@ bool Form::getIsSigned()
 }
 std::ostream &operator<<(std::ostream &output, Form &form)
 {
-	return (output << form.getName() << ", form grade " << form.getsignGrade() << form.getIsSigned() <<  form.getexecuteGrade());
+	return (output << form.getName() << " form grade: " << form.getsignGrade() << " isSigned: "  << form.getIsSigned() <<" executeGrade: "  << form.getexecuteGrade());
 }
 void Form::beSigned(Bureaucrat &buearocrat)
 {
 	try
 	{
-		if( buearocrat.getGrade() <= signGrade)
+		if(buearocrat.getGrade() <= signGrade)
 			isSigned = true;
 		else
 			throw Form::GradeTooLowException();
@@ -87,5 +86,4 @@ void Form::beSigned(Bureaucrat &buearocrat)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 }

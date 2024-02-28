@@ -1,4 +1,6 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(0)
 {
@@ -27,7 +29,7 @@ Bureaucrat::~Bureaucrat()
 	// std::cout << "Bureaucrat : Destructor Called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &obj):  name(obj.getName() + "_copy")
+Bureaucrat::Bureaucrat(Bureaucrat const &obj) : name(obj.getName() + "_copy")
 {
 	// std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj)
@@ -89,9 +91,17 @@ std::ostream &operator<<(std::ostream &output, Bureaucrat &bureaucrat)
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high";
+	return "Bureaucrat: Grade is too high";
 }
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low";
+	return "Bureaucrat: Grade is too low";
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	if (form.getIsSigned())
+		std::cout << "Form is signed" << std::endl;
+	else
+		std::cout << "Form is not signed" << std::endl;
 }
