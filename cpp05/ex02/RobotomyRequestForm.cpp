@@ -37,5 +37,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << &executor << "RobotomyRequest" << std::endl;
+	AForm::execute(executor);
+	std::cout << this->target << " has been robotomized successfully 50% of the time." << std::endl;
 }

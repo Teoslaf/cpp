@@ -2,6 +2,8 @@
 #define _ShrubberyCreationForm_HPP_
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "AForm.hpp"
 // ******************************************************** //
 //                         CLASSES                         //

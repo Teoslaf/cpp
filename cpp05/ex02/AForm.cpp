@@ -50,9 +50,9 @@ const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "AForm: Grade is too low";
 }
-const char *AForm::AlreadySigned::what() const throw()
+const char *AForm::NotSigned::what() const throw()
 {
-	return "AForm: is already signed";
+	return "AForm: is not signed";
 }
 std::string AForm::getName() const
 {
@@ -88,6 +88,7 @@ void AForm::beSigned(Bureaucrat &buearocrat)
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
+		std::exit(EXIT_FAILURE);
 	}
 }
 void AForm::execute(Bureaucrat const &bureaucrat) const
@@ -97,11 +98,12 @@ void AForm::execute(Bureaucrat const &bureaucrat) const
 		if (bureaucrat.getGrade() > this->executeGrade)
 			throw AForm::GradeTooLowException();
 		if (this->isSigned == false)
-			throw AForm::AlreadySigned();
+			throw AForm::NotSigned();
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
+		std::exit(EXIT_FAILURE);
 	}
 	
 }

@@ -34,8 +34,14 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator= (const ShrubberyCreation
 	}
 	return (*this);
 }
- 
+
+
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	std::cout << &executor << "ShrubberyCreationForm"<< std::endl;
+	AForm::execute(executor);
+	// std::cout << &executor << "ShrubberyCreationForm"<< std::endl;
+	std::string filename;
+	std::ifstream file(filename.c_str());
+	filename = this->target;
+	
 }
