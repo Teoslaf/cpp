@@ -29,7 +29,14 @@ public:
 	public:
 		const char *what() const throw();
 	};
-	virtual void beSigned(Bureaucrat &buearocrat) = 0;
+		class AlreadySigned : public std::exception
+	{
+	public:
+		const char *what() const throw();
+	};
+	void beSigned(Bureaucrat &buearocrat);
+	virtual void execute(Bureaucrat const &bureaucrat) const = 0;
+
 private:
 	const std::string name;
 	bool isSigned;

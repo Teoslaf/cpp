@@ -15,7 +15,7 @@ public:
 	RobotomyRequestForm(RobotomyRequestForm const &obj);
 	~RobotomyRequestForm();
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
-	void execute(Bureaucrat const &executor);
+	void execute(Bureaucrat const &executor) const;
 	static std::string const &name;
 
 private:

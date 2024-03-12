@@ -35,7 +35,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 	return (*this);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const &executor)
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	std::cout << &executor << "RobotomyRequest" << std::endl;
 }

@@ -13,7 +13,7 @@ public:
 	~Bureaucrat();
 	Bureaucrat &operator=(const Bureaucrat &obj);
 	std::string getName() const;
-	int getGrade();
+	int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
 	void signAForm(AForm &AForm);

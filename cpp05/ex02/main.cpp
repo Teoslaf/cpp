@@ -9,6 +9,9 @@ int main()
 
 	Bureaucrat max("max", 1);
 	std::cout << max << std::endl;
+	AForm *shrub = new PresidentialPardonForm("home");
+	std::cout << *shrub << std::endl;
+
 	// AForm AForm("Tax AForm", 2, 1);
 	// std::cout << "Before signing: " << AForm << std::endl;
 	// AForm.beSigned(bureaucrat);
