@@ -17,7 +17,6 @@ Form::Form(std::string name,int signGrade, int executeGrade ): name(name), isSig
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 	// std::cout << "Form : Default Constructor Called" << std::endl;
 }
 Form::~Form()
