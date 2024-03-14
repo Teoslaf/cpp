@@ -1,9 +1,13 @@
 #include "ScalarConverter.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-	//	You Code
-	ScalarConverter::convert("a");
-	// std::cout << "******	MAR_BEN CREATION √	******" << std::endl;
+	if(argc != 2)
+	{
+		return 1;
+		std::cout << "give 2 args" << std::endl;	
+
+	}
+	ScalarConverter::convert(argv[1]);
 	return (0);
 }
