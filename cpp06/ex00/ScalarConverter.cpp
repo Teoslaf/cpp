@@ -49,10 +49,6 @@ bool ScalarConverter::isChar(const std::string &str)
 	return str.length() == 1;
 }
 
-int ScalarConverter::convertToInt(const std::string &str)
-{
-	return std::stoi(str);
-}
 void ScalarConverter::convert(const std::string &str)
 {
 
@@ -71,7 +67,31 @@ void ScalarConverter::convert(const std::string &str)
 		floatConvert(str);
 	}
 	else
-		std::cout << "sus input: " << str << std::endl;
+	{
+		if (str == "-inff" || str == "-inf")
+		{
+			std::cout << "Character: overflow" << std::endl;
+			std::cout << "Int: overflow" << std::endl;
+			std::cout << "Double: -inf" << std::endl;
+			std::cout << "Float: -inf" << std::endl;
+		}
+		else if (str == "+inff" || str == "+inf")
+		{
+			std::cout << "Character: overflow" << std::endl;
+			std::cout << "Int: overflow" << std::endl;
+			std::cout << "Double: inf" << std::endl;
+			std::cout << "Float: inf" << std::endl;
+		}
+		else if (str == "nan" || str == "nanf")
+		{
+			std::cout << "Character: idk" << std::endl;
+			std::cout << "Int: idk" << std::endl;
+			std::cout << "Double: nan" << std::endl;
+			std::cout << "Float: nan" << std::endl;
+		}
+		else
+			std::cout << "sus input: " << str << std::endl;
+	}
 }
 void ScalarConverter::charConvert(const std::string &str)
 {
@@ -89,9 +109,7 @@ void ScalarConverter::charConvert(const std::string &str)
 				std::cout << "Character: is not printable" << std::endl;
 		}
 		else
-		{
 			std::cout << "Character: sus" << std::endl;
-		}
 	}
 }
 void ScalarConverter::intConvert(const std::string &str)
