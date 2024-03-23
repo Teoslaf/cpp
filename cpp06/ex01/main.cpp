@@ -3,12 +3,13 @@
 int main()
 {
 	Data data;
-	data.value = 1;
+	data.value = 42;
 
-	uintptr_t s = Serializer::serialize(&data);
-	Data *anotherData = Serializer::deserialize(s);
-	
-	std::cout << s << std::endl;
-	std::cout << anotherData << std::endl;
-	return (0);
+	Serializer serializer;
+	uintptr_t serializedData = serializer.serialize(&data);
+
+	Data *deserializedData = serializer.deserialize(serializedData);
+
+	std::cout << "deserializedData : value: " << deserializedData->value << std::endl;
+	return 0;
 }

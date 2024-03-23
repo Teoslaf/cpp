@@ -2,24 +2,24 @@
 
 Serializer::Serializer()
 {
-	std::cout << "Serializer : Default Constructor Called" << std::endl;
+	// std::cout << "Serializer : Default Constructor Called" << std::endl;
 }
 
 Serializer::~Serializer()
 {
-	std::cout << "Serializer : Destructor Called" << std::endl;
+	// std::cout << "Serializer : Destructor Called" << std::endl;
 }
 
 Serializer::Serializer(Serializer const &obj)
 {
-	std::cout << "Copy Constructor Called" << std::endl;
+	// std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
 
 Serializer	&Serializer::operator= (const Serializer &obj)
 {
-	std::cout << "Copy Assignment Operator Called" << std::endl;
+	// std::cout << "Copy Assignment Operator Called" << std::endl;
 	if (this != &obj)
 	{
 		//	this->attributes = obj.attributes;

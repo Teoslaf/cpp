@@ -1,4 +1,4 @@
-NAME = ScalarConverter 
+NAME = ex01
 
 CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
@@ -6,9 +6,9 @@ CC = c++
 
 STD = -std=c++98 
 
-SRC = ScalarConverter.cpp main.cpp 
+SRC = main.cpp 
 
-INC = ScalarConverter.hpp 
+INC = iter.hpp
 
 OBJ = $(SRC:.cpp=.o) 
 
