@@ -1,6 +1,6 @@
 NAME = Span 
 
-CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 CC = c++ 
 
