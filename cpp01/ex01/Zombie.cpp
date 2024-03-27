@@ -6,7 +6,7 @@ Zombie::Zombie(std::string name)
 	// std::cout << name << " const with name" << std::endl;
 }
 
-Zombie::Zombie()
+Zombie::Zombie() : name("default")
 {
 	// std::cout << name << " const without name" << std::endl;
 }

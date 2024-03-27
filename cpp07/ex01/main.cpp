@@ -1,26 +1,14 @@
 #include "iter.hpp"
 
-void increment(int &x)
-{
-	x++;
-}
-void print(int &num)
-{
-	std::cout << num << " ";
-}
 
-void printChar(const char &x)
-{
-	std::cout << x;
-}
 int main(void)
 {
 	int arr[] = {1, 2, 3, 4, 5};
-	 const char *str = "a b c d e";
-	::iter(arr, 5, increment);
-	::iter(arr, 5, print);
+	std::string str[] = {"abcde", "sup", "ayooo"};
+	::iter(arr, 5, increment<int>);
+	::iter(arr, 5, print<int>);
 	std::cout << std::endl;
-	::iter(str, 9, printChar);
+	::iter(str, 3, print<std::string>);
 	std::cout << std::endl;
 
 }

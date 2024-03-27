@@ -40,7 +40,7 @@ public:
 	};
 	T &operator[](unsigned int index)
 	{
-		if (index > sizeArr)
+		if (index >= sizeArr)
 			throw std::out_of_range("Index out of range");
 		return elements[index];
 	}

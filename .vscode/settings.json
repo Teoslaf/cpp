@@ -73,6 +73,7 @@
 		"ratio": "cpp",
 		"variant": "cpp",
 		"__memory": "cpp",
-		"array.hpp": "c"
+		"array.hpp": "c",
+		"set": "cpp"
 	}
 }

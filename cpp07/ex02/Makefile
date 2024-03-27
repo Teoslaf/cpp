@@ -1,6 +1,6 @@
 NAME = Array 
 
-CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 CC = c++ 
 

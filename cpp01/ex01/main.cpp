@@ -6,7 +6,7 @@
 /*   By: ttaneski <ttaneski@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 11:05:10 by ttaneski          #+#    #+#             */
-/*   Updated: 2024/01/17 13:09:05 by ttaneski         ###   ########.fr       */
+/*   Updated: 2024/03/27 15:34:05 by ttaneski         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main(void)
 {
-	Zombie *Zombie = zombieHorde(10, "teo");
-	deletezobie(Zombie);
+	Zombie z;
+	Zombie t("teo");
 }
